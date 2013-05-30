@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<h3>Received Messages:</h3>
+<ul>
+  <% @received_messages.each do |message| %>
+    <%= render 'received_message', message: message %>
+  <% end %>
+</ul>
+
+<h3>Sent Messages:</h3>
+<ul>
+  <% @sent_messages.each do |message| %>
+    <%= render 'sent_message', message: message %>
+  <% end %>
+</ul>
+
+<h1>New Message:</h1>
+
+<%= render 'messages/form' %>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
